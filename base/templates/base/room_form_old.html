@@ -1,0 +1,14 @@
+{%extends 'main.html'%}
+ 
+{% block content %}
+
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <!--this is basically used for checking if the user is doing any malicious activity-->
+        <input type="submit" value="submit">
+    </form>
+</div>
+
+{% endblock content %}
