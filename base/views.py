@@ -40,10 +40,10 @@ def registerUser(request):
     form=MyUserCreationForm()
 
     if request.method == 'POST':
-        form=MyUserCreationForm(request.POST)
+        form=MyUserCreationForm(request.POST, request.FILES)
         if form.is_valid():
             user=form.save(commit=False)#we are actually freezing the form so that we authenticate at our level
-            user.username = user.username.lower()
+            #user.username = user.username.lower()
             user.save()
             login(request, user)
             return redirect('home')
